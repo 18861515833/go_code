@@ -14,19 +14,19 @@ type dog struct {
 	name string
 }
 
-func (c cat) eat()  {
+func (c *cat) eat()  {
 	fmt.Println(c.getName(),"吃鱼")
 }
 
-func (c cat) getName() string {
+func (c *cat) getName() string {
 	return c.name
 }
 
-func (c dog) eat()  {
+func (c *dog) eat()  {
 	fmt.Println(c.getName(),"吃骨头")
 }
 
-func (c dog) getName() string {
+func (c *dog) getName() string {
 	return c.name
 }
 
@@ -35,6 +35,7 @@ func action(a animal){
 }
 
 func main() {
-	action(cat{"猫"})
-	action(dog{"狗"})
+	action(&cat{"猫"})
+	action(&dog{"狗"})
+
 }
