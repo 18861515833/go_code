@@ -13,6 +13,19 @@ type student struct {
 	id getId
 }
 
+//结构体中的结构体
+//注意class和class1的区别
+type class struct {
+	student
+	className string
+}
+
+type class1 struct {
+	s student
+	className string
+}
+
+
 var c =0
 //c:=0
 func getCount()int {
@@ -24,4 +37,10 @@ func getCount()int {
 func main() {
 	s:=student{"www",getCount}
 	fmt.Println(s.name,s.id(),s.id())
+
+	myClass:=class{s,"高三11班"}
+	fmt.Println(myClass.name)
+
+	myClass1:=class1{s,"高三11班"}
+	fmt.Println(myClass1.s.name)
 }

@@ -40,4 +40,17 @@ func main() {
 		}
 	}
 
+	//slice 作为函数参数传递
+	//slice 的底层实现是一个地址指向内存空间，两个int形变量，一个length，一个capacity
+	//go的函数参数传递都是通过值传递的，所以为了实现引用传递，需要传递指针
+
+	//典型示例，通过函数来进行make
+	var arr []int
+	fmt.Println("before getMemory", len(arr))
+	getMemory(arr)
+	fmt.Println("after getMemory", len(arr))
+}
+
+func getMemory(arr []int) {
+	arr = make([]int, 10) //通过函数改变了len
 }
